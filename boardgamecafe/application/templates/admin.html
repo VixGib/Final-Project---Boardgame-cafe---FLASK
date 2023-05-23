@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block body_content %}
+
+    <!-- Insert HTML local to this page -->
+
+    <h2>Admin Dashboard</h2>
+    <!-- System message -->
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning" role="alert">
+    {{ message }}
+    </div>
+    {% endfor %}
+    <!-- End system message -->
+    <br>
+    <button type="button" class="btn btn-primary"><a class="nav-link" href="">Bookings (Coming Soon)</a></button>
+    <button type="button" class="btn btn-primary"><a class="nav-link" href="{{ url_for('add_session') }}">Add Session</a></button>
+    <button type="button" class="btn btn-primary"><a class="nav-link" href="{{ url_for('add_new_game') }}">Add Game</a></button>
+    <button type="button" class="btn btn-primary"><a class="nav-link" href="">Search Customer Details (Coming Soon)</a></button>
+    <button type="button" class="btn btn-primary"><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></button>
+    <br>
+    <br>
+    <br>
+    <h2>Game Collection</h2>
+    <br>
+    <!-- Game result card -->
+    <table class="table" style="width:75%">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Copies</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for key, value in results.items() %}
+
+        <tr>
+            <th scope="row">{{key}}</th>
+            <td>{{value}}</td>
+            <td align="right"><a href="" class="btn btn-primary">Add Copy (Coming Soon)</a></td>
+            <td align="right"><a href="" class="btn btn-primary">Delete Copy (Coming Soon)</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+    <!-- Do not type below this line -->
+
+{% block footer_content %}
+{% endblock %}
+
+{% endblock %}
